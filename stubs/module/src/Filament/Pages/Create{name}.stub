@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\{name}\Filament\Pages;
+
+use Modules\{name}\Filament\{name}Resource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\CreateRecord;
+
+class Create{name} extends CreateRecord
+{
+    protected static string $resource = {name}Resource::class;
+}

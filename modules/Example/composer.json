@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Modules\\Example\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Example\\ExampleServiceProvider"
+            ]
+        }
+    }
+}

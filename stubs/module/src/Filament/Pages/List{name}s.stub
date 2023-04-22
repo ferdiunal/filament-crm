@@ -1,0 +1,21 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\{name}\Filament\Pages;
+
+use Modules\{name}\Filament\{name}Resource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\ListRecords;
+
+class List{name}s extends ListRecords
+{
+    protected static string $resource = {name}Resource::class;
+
+    protected function getActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
+        ];
+    }
+}

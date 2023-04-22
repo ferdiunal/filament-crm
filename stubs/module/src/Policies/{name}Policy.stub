@@ -1,0 +1,117 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Modules\{name}\Policies;
+
+use App\Models\User;
+use Modules\{name}\Models\{name};
+use Modules\{name}\{name}ServiceProvider;
+
+class {name}Policy
+{
+    /**
+     * Determine whether the {name} can view any models.
+     */
+    public function viewAny(User $user): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+
+    /**
+     * Determine whether the {name} can view the model.
+     */
+    public function view(User $user, {name} ${tag}): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+
+    /**
+     * Determine whether the {name} can create models.
+     */
+    public function create(User $_user): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+
+    /**
+     * Determine whether the {name} can update the model.
+     */
+    public function update(User $user, {name} ${tag}): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+
+    /**
+     * Determine whether the {name} can delete the model.
+     */
+    public function delete(User $user, {name} ${tag}): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+
+    /**
+     * Determine whether the {name} can restore the model.
+     */
+    public function restore(User $user, {name} ${tag}): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+
+    /**
+     * Determine whether the {name} can permanently delete the model.
+     */
+    public function forceDelete(User $user, {name} ${tag}): bool
+    {
+        return (
+            tenancy()->initialized &&
+            in_array(
+                "\\" . {name}ServiceProvider::class,
+                tenant()->modules,
+                true
+            )
+        );
+    }
+}

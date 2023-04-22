@@ -1,4 +1,6 @@
-# Utilizing the Laravel Framework and Filamentphp, a modular CRM application has been developed based on multi-tenancy.
+# filament-crm 
+
+Utilizing the [Laravel Framework](https://github.com/laravel/laravel) and [Filament TallKit](https://github.com/filamentphp/filament), a modular CRM application has been developed based on [multi-tenancy](https://github.com/archtechx/tenancy).
 
 ## Usage:
 
@@ -30,4 +32,4 @@ php artisan crm:modules:create ModuleName
 
 ```bash
 php artisan crm:modules:migrate
-```
+``` 

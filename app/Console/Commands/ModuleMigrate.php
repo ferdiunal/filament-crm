@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\ModuleMigration;
+use App\Jobs\ModuleMigrate as JobsModuleMigrate;
 use App\Models\Tenant;
 use Illuminate\Console\Command;
 
@@ -28,7 +28,7 @@ class ModuleMigrate extends Command
     public function handle()
     {
         Tenant::query()->get()->each(
-            fn (Tenant $tenant) => ModuleMigration::dispatch($tenant)
+            fn (Tenant $tenant) => JobsModuleMigrate::dispatch($tenant)
         );
     }
 }

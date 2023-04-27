@@ -69,7 +69,7 @@
         ],
         "crm-update": [
             "git fetch --all",
-            "git merge template/main --allow-unrelated-histories"
+            "git merge template/main --allow-unrelated-histories -m \"crm updated\""
         ]
     },
     "extra": {

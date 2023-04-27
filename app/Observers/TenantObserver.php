@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\ModuleMigrate;
 use App\Jobs\ModuleMigrateRollback;
 use App\Models\Tenant;
 
@@ -22,14 +23,23 @@ class TenantObserver
     {
 
         $removeModules = array_diff(
-            $tenant->getOriginal()['modules'],
+            $tenant->getOriginal()['modules'] ?? [],
             $tenant->modules
         );
-        
+
+        $addModules = array_diff(
+            $tenant->modules,
+            $tenant->getOriginal()['modules'] ?? [],
+        );
+
         ModuleMigrateRollback::dispatch(
             $tenant,
             $removeModules
         );
+
+        if (! empty($addModules)) {
+            ModuleMigrate::dispatch($tenant);
+        }
     }
 
     /**

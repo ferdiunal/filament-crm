@@ -26,16 +26,18 @@ class ModuleMigrateRollback implements ShouldQueue
      */
     public function handle(): void
     {
-        $this->tenant->run(
-            function (Tenant $tenant) {
-                foreach ($this->removeModules as $module) {
-                    Artisan::call('migrate:rollback', [
-                        '--force' => true, // This needs to be true to run migrations in production.
-                        '--path' => [base_path("modules/{$module::$name}/database/migrations")],
-                        '--realpath' => true,
-                    ]);
+        if (! empty($this->removeModules)) {
+            $this->tenant->run(
+                function (Tenant $tenant) {
+                    foreach ($this->removeModules as $module) {
+                        Artisan::call('migrate:rollback', [
+                            '--force' => true, // This needs to be true to run migrations in production.
+                            '--path' => [base_path("modules/{$module::$name}/database/migrations")],
+                            '--realpath' => true,
+                        ]);
+                    }
                 }
-            }
-        );
+            );
+        }
     }
 }

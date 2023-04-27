@@ -60,11 +60,12 @@
             "./vendor/bin/pint"
         ],
         "crm-install": [
-            "composer install",
+            "@composer install",
             "cp .env.example .env",
             "@php artisan key:generate",
-            "git remote add template git@github.com:ferdiunal/filament-crm.git",
-            "composer crm-update"
+            "@git remote add template git@github.com:ferdiunal/filament-crm.git",
+            "@composer crm-update",
+            "@php artisan make:filament-user --name Admin --email admin@admin.com"
         ],
         "crm-update": [
             "git fetch --all",

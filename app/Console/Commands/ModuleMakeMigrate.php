@@ -2,10 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\ModuleMigration;
-use App\Models\Tenant;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
 class ModuleMakeMigrate extends Command
 {
@@ -29,9 +26,9 @@ class ModuleMakeMigrate extends Command
     public function handle()
     {
         $module = base_path(
-            sprintf("modules/%s/database/migrations", $this->option('module'))
+            sprintf('modules/%s/database/migrations', $this->option('module'))
         );
-        
+
         $output = $this->call('make:migration', [
             'name' => $this->argument('name'),
             '--path' => $module,

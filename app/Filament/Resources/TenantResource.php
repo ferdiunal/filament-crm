@@ -45,7 +45,7 @@ class TenantResource extends Resource
                         collect(config('modules.register'))->mapWithKeys(
                             static fn ($module) => [$module => $module::$name]
                         )->toArray()
-                        ),
+                    ),
             ]);
     }
 

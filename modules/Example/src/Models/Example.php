@@ -16,5 +16,5 @@ class Example extends Model
      *
      * @var string
      */
-    protected $table = 'examples';    
+    protected $table = 'examples';
 }

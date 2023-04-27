@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Example\Filament;
 
-use Modules\Example\Filament\Pages;
-use Modules\Example\Filament\RelationManagers;
-use Modules\Example\Models\Example as ExampleModel;
-use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Example\Models\Example as ExampleModel;
 
 class ExampleResource extends Resource
 {
@@ -21,7 +16,7 @@ class ExampleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $navigationGroup = "Modules";
+    protected static ?string $navigationGroup = 'Modules';
 
     public static function form(Form $form): Form
     {
@@ -48,14 +43,14 @@ class ExampleResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -64,5 +59,5 @@ class ExampleResource extends Resource
             'view' => Pages\ViewExample::route('/{record}'),
             'edit' => Pages\EditExample::route('/{record}/edit'),
         ];
-    }    
+    }
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Jobs\CreateTenantAdmin;
-use App\Jobs\ModuleMigration;
+use App\Jobs\ModuleMigrate;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -30,7 +30,7 @@ class TenancyServiceProvider extends ServiceProvider
                 JobPipeline::make([
                     Jobs\CreateDatabase::class,
                     Jobs\MigrateDatabase::class,
-                    ModuleMigration::class,
+                    ModuleMigrate::class,
                     CreateTenantAdmin::class,
                     // Jobs\SeedDatabase::class,
 

@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Modules\Example\Policies;
 
 use App\Models\User;
-use Modules\Example\Models\Example;
 use Modules\Example\ExampleServiceProvider;
+use Modules\Example\Models\Example;
 
 class ExamplePolicy
 {
@@ -15,14 +15,13 @@ class ExamplePolicy
      */
     public function viewAny(User $user): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 
     /**
@@ -30,14 +29,13 @@ class ExamplePolicy
      */
     public function view(User $user, Example $example): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 
     /**
@@ -45,14 +43,13 @@ class ExamplePolicy
      */
     public function create(User $_user): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 
     /**
@@ -60,14 +57,13 @@ class ExamplePolicy
      */
     public function update(User $user, Example $example): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 
     /**
@@ -75,14 +71,13 @@ class ExamplePolicy
      */
     public function delete(User $user, Example $example): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 
     /**
@@ -90,14 +85,13 @@ class ExamplePolicy
      */
     public function restore(User $user, Example $example): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 
     /**
@@ -105,13 +99,12 @@ class ExamplePolicy
      */
     public function forceDelete(User $user, Example $example): bool
     {
-        return (
+        return
             tenancy()->initialized &&
             in_array(
-                "\\" . ExampleServiceProvider::class,
+                '\\'.ExampleServiceProvider::class,
                 tenant()->modules,
                 true
-            )
-        );
+            );
     }
 }

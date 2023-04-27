@@ -5,11 +5,7 @@ declare(strict_types=1);
 namespace Modules\Example;
 
 use Filament\PluginServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Event;
 use Spatie\LaravelPackageTools\Package;
-use Stancl\Tenancy\Contracts\Tenant;
-use Stancl\Tenancy\Events\TenantCreated;
 
 class ExampleServiceProvider extends ServiceProvider
 {
@@ -48,9 +44,9 @@ class ExampleServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'example');
+        $this->mergeConfigFrom(__DIR__.'/config/config.php', 'example');
 
-        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'example');
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'example');
     }
 
     public function register()

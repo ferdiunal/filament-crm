@@ -28,7 +28,7 @@ class ModuleMigrate extends Command
     public function handle()
     {
         Tenant::query()->get()->each(
-            fn(Tenant $tenant) => ModuleMigration::dispatch($tenant)
+            fn (Tenant $tenant) => ModuleMigration::dispatch($tenant)
         );
     }
 }

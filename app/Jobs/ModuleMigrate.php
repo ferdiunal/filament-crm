@@ -11,16 +11,13 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Artisan;
 use Stancl\Tenancy\Contracts\TenantWithDatabase;
 
-class ModuleMigration implements ShouldQueue
+class ModuleMigrate implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /** @var TenantWithDatabase */
-    protected $tenant;
-
-    public function __construct(TenantWithDatabase $tenant)
-    {
-        $this->tenant = $tenant;
+    public function __construct(
+        private TenantWithDatabase $tenant
+    ) {
     }
 
     /**

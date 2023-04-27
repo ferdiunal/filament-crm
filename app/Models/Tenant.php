@@ -39,7 +39,7 @@ class Tenant extends ModelsTenant implements Contracts\TenantWithDatabase
         ];
     }
 
-    public function domains() :HasMany
+    public function domains(): HasMany
     {
         return $this->hasMany(Domain::class);
     }
